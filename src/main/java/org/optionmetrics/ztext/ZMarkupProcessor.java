@@ -46,9 +46,6 @@ public class ZMarkupProcessor {
     private SearchPath searchPath;
     private List<Section> sections;
 
-    private final String ZED = "\u2500";
-    private final String END = "\u2514";
-
     public ZMarkupProcessor(SearchPath searchPath) {
         this.searchPath = searchPath;
     }
@@ -126,16 +123,18 @@ public class ZMarkupProcessor {
             suff.remove(0);
         }
 
-        if (pref.isEmpty()) {  // the first paragraph was a converter header, nothing before it
+         String END = "\u2514";
+         String ZED = "\u2500";
+         if (pref.isEmpty()) {  // the first paragraph was a converter header, nothing before it
             if (!suff.isEmpty() && !((SectionHeader) suff.get(0)).getSectionName().equals(name)) {
                 // add an extra converter header, representing this file (different name)
-                SectionHeader h = new SectionHeader(ZED+"section " + name + " " + END,
+                SectionHeader h = new SectionHeader(ZED +"section " + name + " " + END,
                         name + ".z", -1);
                 h.setSectionName(name);
                 ps.add(0, h);
             }
         } else if (pref.stream().anyMatch(p->(p instanceof Formal))) { // there is at least one formal not in a converter
-            SectionHeader h = new SectionHeader(ZED +"section " + name + " parents standard_toolkit "+END,
+            SectionHeader h = new SectionHeader(ZED +"section " + name + " parents standard_toolkit "+ END,
                     name + ".z", -1);
             h.setSectionName(name);
             h.getParents().add("standard_toolkit");

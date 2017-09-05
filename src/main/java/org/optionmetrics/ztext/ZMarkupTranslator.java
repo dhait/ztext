@@ -41,13 +41,6 @@ import java.util.List;
 
 public class ZMarkupTranslator extends ZMarkupParserBaseListener {
 
-    private final String AX = "\u2577";
-    private final String SCH = "\u250c";
-    private final String GEN = "\u2550";
-    private final String ZED = "\u2500";
-    private final String END = "\u2514";
-    private final String VERT = "|";
-
     private final String fileName;
     private List<Paragraph> paragraphs = new ArrayList<>();
     private List<String> formals = new ArrayList<>();
@@ -86,15 +79,23 @@ public class ZMarkupTranslator extends ZMarkupParserBaseListener {
     }
 
     public String convert(String s, boolean generic) {
+        String ZED = "\u2500";
+        String GEN = "\u2550";
+        String AX = "\u2577";
+        String SCH = "\u250c";
+        String VERT = "|";
+        String END = "\u2514";
+        String SPOT = "\u2981";
+
         switch(s) {
             case "@":
-                return "\u2981";
+                return SPOT;
             case "zed":
                 return ZED;
             case "axiom":
-                return generic?  AX+GEN : AX;
+                return generic?  AX + GEN : AX;
             case "schema":
-                return generic? SCH+GEN : SCH;
+                return generic? SCH + GEN : SCH;
             case "where":
                 return VERT;
             case "end":
