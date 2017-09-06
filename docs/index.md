@@ -11,6 +11,7 @@ Ztext is an alternative markup scheme for Z notation, which like LaTex uses text
 # Table of contents
 * [Language elements](#language-elements)
 * [Language structure](#language-structure)
+  * [Comments](#comments)
   * [Sections](#sections)
   * [Paragraphs](#paragraphs) 
   * [Definitions](#definitions)
@@ -19,10 +20,22 @@ Ztext is an alternative markup scheme for Z notation, which like LaTex uses text
 
 ## Language elements
 
+To use Ztext to create a Z language specifications, you can use standard text characters to denote elements of the Z language.  Schema, axioms, and other Z language structures are specified by using keywords defined in Ztext.  In addition, special Unicode characters which are used within the Z language but which are not on the standard keyboard can be defined using a special **define** directive and referenced within the Ztext document.  Characters which are defined in this way always begin with a backslash (\\).
+
+A Ztext document contains only elements of the Z language; it cannot contain "informal" (non-Z) text unless it is part of a comment (prefixed or surrounded by comment characters).
 
 ## Language structure
 
 The Z notation consists of a series of paragraphs, each paragraph beginning with an optional section header.  The section header, in addition to providing the name of the section, also lists any of the section's dependencies.  The details of sections and paragraphs are described in the Z specification; here we only present their syntax in ZText.
+
+### Comments
+Comments in Ztext can be either surrounded by comment characters ("/*" and "*/"), or on a single line prefixed by the comment prefix "//".
+
+```Z
+/* This is a comment in Ztext */
+zed [APPLE] end
+// This is also a comment
+```
 
 ### Sections
 A Z notation section begins with the **section** keyword:
@@ -159,7 +172,67 @@ tag 3
 The tag must be an integer greater than or equal to zero.  A tag has no effect on the Z specification in which it is included, and is not interpreted.
 
 ## Predefined symbols
-The following symbols are predefined in the standard_toolkit:
+The following Z notation symbols are predefined in the standard_toolkit:
 
+```Z
+section number_toolkit end
 
+define \num \u2124  end
+define \negate \u002d end
+define \leq \u2264 end
+define \geq \u2265 end
+
+section set_toolkit end
+
+define \rel      \u2194 end
+define \fun      \u2192 end
+define \neq      \u2260 end
+define \notin    \u2209 end
+define \emptyset \u2205 end
+define \subseteq \u2286 end
+define \subset   \u2282 end
+define \cup      \u222A end
+define \cap      \u2229 end
+define \symdiff  \u2296 end
+define \bigcup   \u22C3 end
+define \bigcap   \u22C2 end
+define \finset   \ud835\udd32
+end
+
+section relation_toolkit parents set_toolkit end
+
+define \mapsto \u21a6 end
+define \comp \u2a3e end
+define \circ \u2218 end
+define \dres \u25c1 end
+define \rres \u25b7 end
+define \ndres \u2a64 end
+define \nrres \u2a65 end
+define \inv \u223c end
+define \limg \u2987 end
+define \rimg \u2988 end
+define \oplus \u2295 end
+define \plus + end
+define \star * end
+
+section function_toolkit parents relation_toolkit end
+
+define \pfun \u21f8 end
+define \pinj \u2914 end
+define \inj \u21a3 end
+define \psurj \u2900 end
+define \surj \u21a0 end
+define \bij \u21f8 end
+define \finj \u2915 end
+
+section sequence_toolkit parents function_toolkit, number_toolkit end
+
+define \upto \u002e\u002e end
+define \langle \u3008 end
+define \rangle \u3009 end
+define \cat \u2040 end
+define \extract \u21bf end
+define \filter \u21be end
+define \dcat \u2040 end
+```
 
