@@ -9,13 +9,13 @@ Z notation requires an extensive set of UNICODE symbols for its rendering.  Beca
 Ztext is an alternative markup scheme for Z notation, which like LaTex uses text-based symbols for representing Z notation symbols, but does not require LaTex.  The Ztext markup language is intended for rendering in HTML, either independently or for inclusion in Markdown.  The HTML rendering can be converted to PDF by any one of a number of HTML to PDF converters (such as wkhtmltopdf).
 
 # Table of contents
-* [Language elements](##Language-elements)
-* [Language structure](##Language-structure)
-  * [Sections](##Sections)
-  * [Paragraphs](##Paragraphs) 
-  * [Definitions](##Definitions)
-  * [Tags](###Tags)
-* [Predefined symbols](##Predefined-symbols)
+* [Language elements](#Language-elements)
+* [Language structure](#Language-structure)
+  * [Sections](#Sections)
+  * [Paragraphs](#Paragraphs) 
+  * [Definitions](#Definitions)
+  * [Tags](#Tags)
+* [Predefined symbols](#Predefined-symbols)
 
 ## Language elements
 
