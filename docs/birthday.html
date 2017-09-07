@@ -36,23 +36,12 @@
 </head>
 <body>
 <div class="z-text">
-    section prelude </div>
-<div class="z-text">
-    section set_toolkit </div>
-<div class="z-text">
-    section relation_toolkit parents set_toolkit </div>
-<div class="z-text">
-    section function_toolkit parents relation_toolkit </div>
-<div class="z-text">
-    section number_toolkit </div>
-<div class="z-text">
-    section sequence_toolkit parents function_toolkit , number_toolkit </div>
-<div class="z-text">
-    section standard_toolkit parents sequence_toolkit </div>
-<div class="z-text">
-    section birthday parents standard_toolkit </div>
-<div class="z-text">
     [ NAME , DATE ] </div>
+<p>
+
+
+
+</p>
 <div class="z-schema">
     <div class="z-name" >
         BirthdayBook
@@ -63,6 +52,11 @@
     <div class="z-schema-pred">
         known = dom birthday </div>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-schema">
     <div class="z-name" >
         AddBirthday
@@ -75,6 +69,13 @@
         name? ∉ known <br/>
         birthday′ = birthday ∪ { name? ↦ date? } </div>
 </div>
+<p>
+
+
+    Now we can put some informal text in the middle.
+
+
+</p>
 <div class="z-schema">
     <div class="z-name" >
         FindBirthday
@@ -87,6 +88,11 @@
         name? ∈ known <br/>
         date! = birthday ( name? ) </div>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-schema">
     <div class="z-name" >
         Remind
@@ -98,6 +104,11 @@
     <div class="z-schema-pred">
         cards! = { n : known | birthday ( n ) = today? } </div>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-schema">
     <div class="z-name" >
         InitBirthdayBook
@@ -107,9 +118,19 @@
     <div class="z-schema-pred">
         known′ = { } </div>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-text">
     REPORT ::= ok | already_known | not_known <br/>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-schema">
     <div class="z-name" >
         Success
@@ -119,6 +140,11 @@
     <div class="z-schema-pred">
         result! = ok </div>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-schema">
     <div class="z-name" >
         AlreadyKnown
@@ -131,9 +157,19 @@
         name? ∈ known <br/>
         result! = already_known </div>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-text">
     RAddBirthday == ( AddBirthday ∧ Success ) ∨ AlreadyKnown <br/>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-schema">
     <div class="z-name" >
         NotKnown
@@ -146,11 +182,26 @@
         name? ∉ known <br/>
         result! = not_known </div>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-text">
     RFindBirthday == ( FindBirthday ∧ Success ) ∨ NotKnown <br/>
 </div>
+<p>
+
+
+
+</p>
 <div class="z-text">
     RRemind == Remind ∧ Success <br/>
 </div>
+<p>
+
+
+</p>
+
 </body>
 </html>

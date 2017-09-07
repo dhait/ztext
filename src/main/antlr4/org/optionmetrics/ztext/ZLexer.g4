@@ -69,7 +69,8 @@ AX: '\u2577'  -> mode(Z); // ╷
 
 ATTR: '@' -> mode(Attr);
 
-TEXT: ~[\u2500\u250C\u2577]+? -> channel(HIDDEN);
+TEXT: ~[\u2500\u250C\u2577]+? //-> channel(HIDDEN)
+;
 
 mode Attr;
 TAG : 'Tag';

@@ -35,6 +35,7 @@ import org.antlr.v4.runtime.TokenStreamRewriter;
 import org.antlr.v4.runtime.misc.Interval;
 import org.optionmetrics.ztext.impl.Definition;
 import org.optionmetrics.ztext.impl.Formal;
+import org.optionmetrics.ztext.impl.Informal;
 import org.optionmetrics.ztext.impl.SectionHeader;
 
 import java.util.ArrayList;
@@ -153,6 +154,7 @@ public class ZMarkupTranslator extends ZMarkupParserBaseListener {
 
     @Override
     public void exitInformal(ZMarkupParser.InformalContext ctx) {
-        System.out.println("Informal");
+        Informal f = new Informal(ctx.getText(), fileName, currentTag);
+        paragraphs.add(f);
     }
 }

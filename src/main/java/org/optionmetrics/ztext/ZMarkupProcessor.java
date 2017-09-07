@@ -35,6 +35,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.optionmetrics.ztext.impl.Formal;
+import org.optionmetrics.ztext.impl.Informal;
 import org.optionmetrics.ztext.impl.SectionHeader;
 
 import java.io.IOException;
@@ -70,10 +71,12 @@ public class ZMarkupProcessor {
         // parser and order the sections
         sortSections(name);
         expandDefinitions();  // convert
+
+        // section paragraphs contains informals
         StringBuilder sb = new StringBuilder();
         for (Section s : sections) {
             for (Paragraph p : s.getParagraphs()) {
-                if (p instanceof SectionHeader || p instanceof Formal)
+                if (p instanceof SectionHeader || p instanceof Formal || p instanceof Informal)
                     sb.append(p).append("\n");
             }
         }

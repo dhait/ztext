@@ -31,8 +31,12 @@ parser grammar ZParser;
 options { tokenVocab=ZLexer; }
 
 specification
-	: ( TEXT | attribute | section | paragraph)* EOF
+	: ( informal | attribute | section | paragraph)* EOF
 	;
+
+informal
+    : TEXT+
+    ;
 
 attribute
     :  ATTR attType '(' ADIGIT ')' END_OF_ATTR;

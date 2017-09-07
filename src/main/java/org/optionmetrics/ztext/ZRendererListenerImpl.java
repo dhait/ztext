@@ -32,6 +32,7 @@ package org.optionmetrics.ztext;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.tree.TerminalNode;
 import org.omg.IOP.TAG_CODE_SETS;
 
 import java.util.HashMap;
@@ -55,6 +56,17 @@ public class ZRendererListenerImpl extends ZParserBaseListener {
 
     public Map<Integer, StringBuilder> getBlockMap() {
         return blockMap;
+    }
+
+    @Override
+    public void exitInformal(ZParser.InformalContext ctx) {
+        // informal paragraph
+        StringBuilder builder = getBuilder();
+        builder.append("<p>");
+        for (TerminalNode t : ctx.TEXT()) {
+               builder.append(t.getText());
+        }
+        builder.append("</p>\n");
     }
 
     @Override
@@ -203,4 +215,6 @@ public class ZRendererListenerImpl extends ZParserBaseListener {
         }
         super.exitAttribute(ctx);
     }
+
+
 }
