@@ -63,11 +63,11 @@ public class Section {
         return (getSectionHeader()).getParents();
     }
 
-    void visit(Set<Section> sections, List<Section> sorted) throws Exception {
+    void visit(Set<Section> sections, List<Section> sorted) throws SectionDependencyException {
         if (mark == Mark.PERM)
             return;
         if (mark == Mark.TEMP) {
-            throw new Exception("Cycle present");
+            throw new SectionDependencyException("Dependency cycle present");
         }
         mark = Mark.TEMP;
         List<String> parents = getParents();

@@ -6,6 +6,7 @@
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions
  *  are met:
+ *
  *  1. Redistributions of source code must retain the above copyright
  *     notice, this list of conditions and the following disclaimer.
  *  2. Redistributions in binary form must reproduce the above copyright
@@ -46,6 +47,17 @@ public class ZMarkupProcessor {
     private SearchPath searchPath;
     private List<Section> sections;
 
+    public ZMarkupProcessor() {
+    }
+
+    public void setSearchPath(SearchPath searchPath) {
+        this.searchPath = searchPath;
+    }
+
+    public SearchPath getSearchPath() {
+        return searchPath;
+    }
+
     public ZMarkupProcessor(SearchPath searchPath) {
         this.searchPath = searchPath;
     }
@@ -54,7 +66,7 @@ public class ZMarkupProcessor {
         return sections;
     }
 
-    public String process(String name) throws Exception {
+    public String process(String name) throws IOException, SectionDependencyException {
         // parser and order the sections
         sortSections(name);
         expandDefinitions();  // convert
@@ -101,7 +113,9 @@ public class ZMarkupProcessor {
     }
     private List<Paragraph> filenameToParagraphs(String name) throws IOException {
         List<Paragraph> paragraphs;
-        String fname = name + ".z";
+        String fname = name;
+        if (!name.endsWith(".ztx"))
+            fname = fname + ".ztx";
         InputStream inputStream = searchPath.find(fname);
         if (inputStream != null) {
             paragraphs = load(inputStream, fname);
@@ -195,7 +209,7 @@ public class ZMarkupProcessor {
         return readSpec(firstParam, ss2);
     }
 
-    private List<Section> orderSections(Set<Section> sections) throws Exception {
+    private List<Section> orderSections(Set<Section> sections) throws SectionDependencyException {
 
         List<Section>  sorted = new ArrayList<>();
 
@@ -217,7 +231,7 @@ public class ZMarkupProcessor {
         return sorted;
     }
 
-    private void sortSections(String name) throws Exception {
+    private void sortSections(String name) throws IOException, SectionDependencyException {
         Set<String> names = new HashSet<>();
         names.add(name);
         names.add("prelude");

@@ -1,0 +1,7 @@
+<component name="CopyrightManager">
+  <settings default="3-BSD">
+    <module2copyright>
+      <element module="All" copyright="3-BSD" />
+    </module2copyright>
+  </settings>
+</component>
