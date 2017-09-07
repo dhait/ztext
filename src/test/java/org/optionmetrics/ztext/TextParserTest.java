@@ -5,7 +5,6 @@
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- *
  *  1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *  2. Redistributions in binary form must reproduce the above copyright
@@ -29,29 +28,22 @@
 
 package org.optionmetrics.ztext;
 
+import org.junit.Test;
+
 import java.io.IOException;
 
-public class ZProcessor {
+public class TextParserTest {
 
-    private ZMarkupProcessor zMarkupProcessor = new ZMarkupProcessor();
+    @Test
+    public void parseTest() throws IOException, SectionDependencyException {
 
-    public ZProcessor() {
-        zMarkupProcessor = new ZMarkupProcessor();
-        SearchPath searchPath = new SearchPath();
-        searchPath.addItem(SearchPath.SourceType.RESOURCE_PATH, "/toolkit");
-        zMarkupProcessor.setSearchPath(searchPath);
+        TextParser parser = new TextParser();
+        parser.getSearchPath().addItem(SearchPath.SourceType.RESOURCE_PATH, "");
+
+        // parse a string
+        Node specification = parser.parse("birthday");
+
+        HtmlRenderer renderer = new HtmlRenderer();
+        renderer.render(specification);
     }
-
-    public SearchPath getSearchPath() {
-        return zMarkupProcessor.getSearchPath();
-    }
-
-    public Node parse(String text) throws IOException, SectionDependencyException {
-        // phase 1 - parse the markup
-        String zcode = zMarkupProcessor.process(text);
-        // phase 2 - parse the zcode
-        return new Node();
-    }
-
-
 }

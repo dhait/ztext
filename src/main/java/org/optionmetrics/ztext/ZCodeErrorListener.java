@@ -5,6 +5,7 @@
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
+ *
  *  1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *  2. Redistributions in binary form must reproduce the above copyright
@@ -28,22 +29,24 @@
 
 package org.optionmetrics.ztext;
 
-import org.junit.Test;
+import org.antlr.v4.runtime.BaseErrorListener;
+import org.antlr.v4.runtime.CommonToken;
+import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.Recognizer;
 
-import java.io.IOException;
+public class ZCodeErrorListener extends BaseErrorListener {
 
-public class ZProcessorTest {
+    private int errorCount = 0;
 
-    @Test
-    public void parseTest() throws IOException, SectionDependencyException {
+    public int getErrorCount() {
+        return errorCount;
+    }
 
-        ZProcessor processor = new ZProcessor();
-        processor.getSearchPath().addItem(SearchPath.SourceType.RESOURCE_PATH, "");
-
-        // parse a string
-        Node specification = processor.parse("birthday.ztx");
-
-        HtmlRenderer renderer = new HtmlRenderer();
-        renderer.render(specification);
+    @Override
+    public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg,
+                                        RecognitionException e) {
+        System.err.println("Error: line " + line + ": syntax error near '" +
+                ((CommonToken) offendingSymbol).getText() +"'" );
+        errorCount++;
     }
 }

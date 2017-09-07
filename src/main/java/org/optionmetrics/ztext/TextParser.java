@@ -29,13 +29,30 @@
 
 package org.optionmetrics.ztext;
 
-import org.antlr.v4.runtime.ParserRuleContext;
+import java.io.IOException;
 
-public class Node {
+public class TextParser {
 
-    private final ParserRuleContext ctx;
+    private ZMarkupProcessor zMarkupProcessor = new ZMarkupProcessor();
+    private ZCodeProcessor zCodeProcessor = new ZCodeProcessor();
 
-    public Node(ParserRuleContext ctx) {
-        this.ctx =ctx;
+    public TextParser() {
+        zMarkupProcessor = new ZMarkupProcessor();
+        SearchPath searchPath = new SearchPath();
+        searchPath.addItem(SearchPath.SourceType.RESOURCE_PATH, "/toolkit");
+        zMarkupProcessor.setSearchPath(searchPath);
     }
+
+    public SearchPath getSearchPath() {
+        return zMarkupProcessor.getSearchPath();
+    }
+
+    public Node parse(String name) throws IOException, SectionDependencyException {
+        // phase 1 - parse the markup
+        String zcode = zMarkupProcessor.process(name);
+        // phase 2 - parse the zcode
+        return zCodeProcessor.process(zcode);
+    }
+
+
 }

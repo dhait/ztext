@@ -29,13 +29,46 @@
 
 package org.optionmetrics.ztext;
 
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 
-public class Node {
 
-    private final ParserRuleContext ctx;
+import java.io.IOException;
+import java.io.InputStream;
 
-    public Node(ParserRuleContext ctx) {
-        this.ctx =ctx;
+public class ZCodeProcessor {
+
+    private CommonTokenStream tokens;
+
+    public Node process(InputStream input) throws IOException {
+        CharStream stream = CharStreams.fromStream(input);
+        return process(stream);
+    }
+
+    public Node process(String input) {
+        CharStream stream = CharStreams.fromString(input);
+        return process(stream);
+    }
+
+    private Node process(CharStream stream) {
+        Node node = null;
+        ZLexer lexer = new ZLexer(stream);
+        tokens = new CommonTokenStream(lexer);
+        ZParser parser = new ZParser(tokens);
+
+        parser.removeErrorListeners();
+        ZCodeErrorListener errorListener = new ZCodeErrorListener();
+        parser.addErrorListener(errorListener);
+
+        ParserRuleContext tree = parser.specification();
+
+        if (errorListener.getErrorCount() > 0) {
+            System.err.println(errorListener.getErrorCount() + " errors in Z code ");
+        } else {
+            node = new Node(tree);
+        }
+        return node;
     }
 }

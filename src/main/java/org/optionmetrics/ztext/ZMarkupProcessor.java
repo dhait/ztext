@@ -114,8 +114,7 @@ public class ZMarkupProcessor {
     private List<Paragraph> filenameToParagraphs(String name) throws IOException {
         List<Paragraph> paragraphs;
         String fname = name;
-        if (!name.endsWith(".ztx"))
-            fname = fname + ".ztx";
+        fname = fname + ".ztx";
         InputStream inputStream = searchPath.find(fname);
         if (inputStream != null) {
             paragraphs = load(inputStream, fname);
@@ -143,13 +142,13 @@ public class ZMarkupProcessor {
             if (!suff.isEmpty() && !((SectionHeader) suff.get(0)).getSectionName().equals(name)) {
                 // add an extra converter header, representing this file (different name)
                 SectionHeader h = new SectionHeader(ZED +"section " + name + " " + END,
-                        name + ".z", -1);
+                        name + ".ztx", -1);
                 h.setSectionName(name);
                 ps.add(0, h);
             }
         } else if (pref.stream().anyMatch(p->(p instanceof Formal))) { // there is at least one formal not in a converter
             SectionHeader h = new SectionHeader(ZED +"section " + name + " parents standard_toolkit "+ END,
-                    name + ".z", -1);
+                    name + ".ztx", -1);
             h.setSectionName(name);
             h.getParents().add("standard_toolkit");
             ps.add(0, h);
