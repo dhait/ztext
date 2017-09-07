@@ -37,7 +37,7 @@ public class Informal extends Paragraph {
 
     public Informal(String text, String fileName, int tag) {
         super(fileName,tag);
-        this.text = text;
+        this.text = text.trim();
     }
     @Override
     public String toString() {

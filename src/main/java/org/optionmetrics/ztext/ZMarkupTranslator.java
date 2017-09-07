@@ -154,7 +154,9 @@ public class ZMarkupTranslator extends ZMarkupParserBaseListener {
 
     @Override
     public void exitInformal(ZMarkupParser.InformalContext ctx) {
-        Informal f = new Informal(ctx.getText(), fileName, currentTag);
-        paragraphs.add(f);
+        if (ctx.getText().trim().length() > 0) {
+            Informal f = new Informal(ctx.getText().trim(), fileName, currentTag);
+            paragraphs.add(f);
+        }
     }
 }

@@ -28,7 +28,7 @@
 
 /* This is an example of the birthday book. */
 
-tag 1 end
+tag 0 end
 
 zed [ NAME, DATE ] end
 

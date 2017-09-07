@@ -46,9 +46,7 @@ public class HtmlRenderer {
         walker.walk(listener, ctx);
         Map<Integer, StringBuilder> map = listener.getBlockMap();
         for (int i : map.keySet()) {
-            if (i >= 0) {
-                htmlMap.put(i, map.get(i).toString());
-           }
+           htmlMap.put(i, map.get(i).toString());
         }
         return htmlMap;
     }
