@@ -66,7 +66,9 @@ lexer grammar ZLexer;
 ZED: '\u2500' -> mode(Z); // In line 6, replace "| 0000 2028 LINE SEPARATOR" by "— 0000 2500 BOX DRAWINGS LIGHT HORIZONTAL".
 SCH: '\u250C' -> mode(Z); // ┌
 AX: '\u2577'  -> mode(Z); // ╷
+
 ATTR: '@' -> mode(Attr);
+
 TEXT: ~[\u2500\u250C\u2577]+? -> channel(HIDDEN);
 
 mode Attr;

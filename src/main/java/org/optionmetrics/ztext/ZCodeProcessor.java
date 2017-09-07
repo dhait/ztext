@@ -67,7 +67,7 @@ public class ZCodeProcessor {
         if (errorListener.getErrorCount() > 0) {
             System.err.println(errorListener.getErrorCount() + " errors in Z code ");
         } else {
-            node = new Node(tree);
+            node = new Node(tree, tokens);
         }
         return node;
     }

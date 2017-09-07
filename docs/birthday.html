@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+  ~ [The "BSD licence"]
+  ~ Copyright (c) 2017 David J Hait
+  ~ All rights reserved.
+  ~
+  ~ Redistribution and use in source and binary forms, with or without modification, 
+  ~ are permitted provided that the following conditions are met:
+  ~
+  ~  1. Redistributions of source code must retain the above copyright
+  ~      notice, this list of conditions and the following disclaimer.
+  ~  2. Redistributions in binary form must reproduce the above copyright
+  ~      notice, this list of conditions and the following disclaimer in the
+  ~      documentation and/or other materials provided with the distribution.
+  ~  3. The name of the author may not be used to endorse or promote products
+  ~      derived from this software without specific prior written permission.
+  ~  
+  ~  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+  ~  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+  ~  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  ~  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+  ~  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  ~  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+  ~  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  ~  
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Book</title>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</head>
+<body>
+<div class="z-text">
+    section prelude </div>
+<div class="z-text">
+    section set_toolkit </div>
+<div class="z-text">
+    section relation_toolkit parents set_toolkit </div>
+<div class="z-text">
+    section function_toolkit parents relation_toolkit </div>
+<div class="z-text">
+    section number_toolkit </div>
+<div class="z-text">
+    section sequence_toolkit parents function_toolkit , number_toolkit </div>
+<div class="z-text">
+    section standard_toolkit parents sequence_toolkit </div>
+<div class="z-text">
+    section birthday parents standard_toolkit </div>
+<div class="z-text">
+    [ NAME , DATE ] </div>
+<div class="z-schema">
+    <div class="z-name" >
+        BirthdayBook
+    </div>
+    <div class="z-schema-decl">
+        known : ℙ NAME <br/>
+        birthday : NAME ⇸ DATE </div>
+    <div class="z-schema-pred">
+        known = dom birthday </div>
+</div>
+<div class="z-schema">
+    <div class="z-name" >
+        AddBirthday
+    </div>
+    <div class="z-schema-decl">
+        Δ BirthdayBook <br/>
+        name? : NAME <br/>
+        date? : DATE </div>
+    <div class="z-schema-pred">
+        name? ∉ known <br/>
+        birthday′ = birthday ∪ { name? ↦ date? } </div>
+</div>
+<div class="z-schema">
+    <div class="z-name" >
+        FindBirthday
+    </div>
+    <div class="z-schema-decl">
+        Ξ BirthdayBook <br/>
+        name? : NAME <br/>
+        date! : DATE </div>
+    <div class="z-schema-pred">
+        name? ∈ known <br/>
+        date! = birthday ( name? ) </div>
+</div>
+<div class="z-schema">
+    <div class="z-name" >
+        Remind
+    </div>
+    <div class="z-schema-decl">
+        Ξ BirthdayBook <br/>
+        today? : DATE <br/>
+        cards! : ℙ NAME </div>
+    <div class="z-schema-pred">
+        cards! = { n : known | birthday ( n ) = today? } </div>
+</div>
+<div class="z-schema">
+    <div class="z-name" >
+        InitBirthdayBook
+    </div>
+    <div class="z-schema-decl">
+        BirthdayBook′ </div>
+    <div class="z-schema-pred">
+        known′ = { } </div>
+</div>
+<div class="z-text">
+    REPORT ::= ok | already_known | not_known <br/>
+</div>
+<div class="z-schema">
+    <div class="z-name" >
+        Success
+    </div>
+    <div class="z-schema-decl">
+        result! : REPORT </div>
+    <div class="z-schema-pred">
+        result! = ok </div>
+</div>
+<div class="z-schema">
+    <div class="z-name" >
+        AlreadyKnown
+    </div>
+    <div class="z-schema-decl">
+        Ξ BirthdayBook <br/>
+        name? : NAME <br/>
+        result! : REPORT </div>
+    <div class="z-schema-pred">
+        name? ∈ known <br/>
+        result! = already_known </div>
+</div>
+<div class="z-text">
+    RAddBirthday == ( AddBirthday ∧ Success ) ∨ AlreadyKnown <br/>
+</div>
+<div class="z-schema">
+    <div class="z-name" >
+        NotKnown
+    </div>
+    <div class="z-schema-decl">
+        Ξ BirthdayBook <br/>
+        name? : NAME <br/>
+        result! : REPORT </div>
+    <div class="z-schema-pred">
+        name? ∉ known <br/>
+        result! = not_known </div>
+</div>
+<div class="z-text">
+    RFindBirthday == ( FindBirthday ∧ Success ) ∨ NotKnown <br/>
+</div>
+<div class="z-text">
+    RRemind == Remind ∧ Success <br/>
+</div>
+</body>
+</html>

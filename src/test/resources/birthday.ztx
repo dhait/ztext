@@ -28,9 +28,10 @@
 
 /* This is an example of the birthday book. */
 
+tag 1 end
+
 zed [ NAME, DATE ] end
 
-tag 1
 schema BirthdayBook
     known : \power NAME
     birthday : NAME \pfun DATE
@@ -46,6 +47,8 @@ where
     name? \notin known
     birthday′ = birthday \cup { name? \mapsto date? }
 end
+
+Now we can put some informal text in the middle.
 
 schema FindBirthday
     \Xi BirthdayBook

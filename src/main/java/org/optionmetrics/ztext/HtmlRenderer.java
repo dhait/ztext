@@ -28,7 +28,28 @@
 
 package org.optionmetrics.ztext;
 
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class HtmlRenderer {
-    public void render(Node specification) {
+
+    public Map<Integer, String> render(Node specification) {
+        Map<Integer, String> htmlMap = new TreeMap<>();
+
+        ParserRuleContext ctx = specification.getContext();
+        ParseTreeWalker walker = new ParseTreeWalker();
+        ZRendererListenerImpl listener = new ZRendererListenerImpl(specification.getTokens());
+        walker.walk(listener, ctx);
+        Map<Integer, StringBuilder> map = listener.getBlockMap();
+        for (int i : map.keySet()) {
+            if (i >= 0) {
+                htmlMap.put(i, map.get(i).toString());
+           }
+        }
+        return htmlMap;
     }
 }

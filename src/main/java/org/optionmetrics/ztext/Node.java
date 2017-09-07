@@ -29,13 +29,24 @@
 
 package org.optionmetrics.ztext;
 
+import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 
 public class Node {
 
-    private final ParserRuleContext ctx;
+    private final ParserRuleContext context;
+    private final CommonTokenStream tokens;
 
-    public Node(ParserRuleContext ctx) {
-        this.ctx =ctx;
+    public Node(ParserRuleContext context, CommonTokenStream tokens) {
+        this.context =context;
+        this.tokens = tokens;
+    }
+
+    public ParserRuleContext getContext() {
+        return context;
+    }
+
+    public CommonTokenStream getTokens() {
+        return tokens;
     }
 }

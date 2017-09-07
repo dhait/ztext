@@ -58,7 +58,6 @@ public class ZMarkupTranslator extends ZMarkupParserBaseListener {
     public TokenStreamRewriter getRewriter() {
         return rewriter;
     }
-
     public List<Paragraph> getParagraphs() {
         return paragraphs;
     }
@@ -150,5 +149,10 @@ public class ZMarkupTranslator extends ZMarkupParserBaseListener {
     public void exitTag(ZMarkupParser.TagContext ctx) {
         currentTag = Integer.valueOf(ctx.NUMBER().getText());
         super.exitTag(ctx);
+    }
+
+    @Override
+    public void exitInformal(ZMarkupParser.InformalContext ctx) {
+        System.out.println("Informal");
     }
 }

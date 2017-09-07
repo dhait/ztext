@@ -1,0 +1,165 @@
+/*
+ * [The "BSD licence"]
+ *  Copyright (c) 2017 David J Hait
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ *  1. Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *  2. Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ *  3. The name of the author may not be used to endorse or promote products
+ *     derived from this software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ *  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ *  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ *  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ *  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ *  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ *  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ *  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ *  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+@page {
+    size: 8.5in 11in;
+    @bottom-right {
+        content: counter(page);
+    }
+}
+
+html {
+    font-size: 12pt;
+}
+body {
+    margin: 5em;
+    font-family: "Times New Roman", Times, serif;
+    hyphens: auto;
+    text-align: justify;
+}
+
+.title {
+    font-family: Helvetica, sans-serif;
+    font-size: 1.5em;
+    margin: 0 0 .333em;
+    text-align: center;
+    text-transform: none; }
+
+.authors + .authors {
+    margin-top: 6pt;
+}
+
+.author {
+    break-inside: avoid;
+    break-after: avoid;
+    font-size: 1.2em;
+    text-align: center; }
+
+.author > :first-child {
+    font-size: 14pt; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    break-after: avoid;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    hyphens: none;
+}
+
+h1 {
+    font-size: 1.3em; }
+
+h2 {
+    font-size: 1.2em; }
+
+h3 {
+    font-size: 1.1em; }
+
+h4 {
+    font-size: 1.1em; }
+
+h5 {
+    font-size: 1.1em; }
+
+h6 {
+    font-size: 1.1em; }
+
+div.z-text {
+    font-family: "Noto Serif", "Noto Serif CJK JP", serif;
+    font-style: italic;
+    font-size: 1.1em;
+    padding-left: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: purple;
+}
+
+div.z-axiom {
+    font-family: "Noto Serif", "Noto Serif CJK JP", serif;
+    font-style: italic;
+    font-size: 1.1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    border-left: solid black 1px;
+    color: purple;
+}
+
+div.z-axiom .z-axiom-decl {
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+div.z-axiom .z-axiom-pred {
+    border-top: solid black 1px;
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: calc(100% - 5em);
+}
+
+div.z-schema {
+    font-family: "Noto Serif", "Noto Serif CJK JP", serif;
+    font-style: italic;
+    font-size: 1.1em;
+    margin: 2em;
+    border-left: solid black 1px;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    width: calc(100% - 5em);
+    page-break-inside: avoid;
+    white-space: nowrap;
+    color: purple;
+}
+div.z-schema .z-schema-decl {
+    padding-left: 1em;
+    padding-top: 0.0em;
+    padding-bottom: 0.5em;
+}
+div.z-schema .z-schema-pred {
+    border-top: solid black 1px;
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: calc(100% - 1em);
+}
+
+div.z-schema .z-name {
+    page-break-inside: avoid;
+    display: inline-block;
+    background:#fff;
+    position: relative;
+    bottom: 0.6rem;
+    left: 1rem;
+    margin-top: -1em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}

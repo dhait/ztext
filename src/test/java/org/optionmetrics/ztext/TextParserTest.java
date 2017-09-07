@@ -31,6 +31,7 @@ package org.optionmetrics.ztext;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class TextParserTest {
 
@@ -44,6 +45,10 @@ public class TextParserTest {
         Node specification = parser.parse("birthday");
 
         HtmlRenderer renderer = new HtmlRenderer();
-        renderer.render(specification);
+        Map<Integer, String> html = renderer.render(specification);
+
+        for (int i: html.keySet()) {
+            System.out.println(html.get(i));
+        }
     }
 }

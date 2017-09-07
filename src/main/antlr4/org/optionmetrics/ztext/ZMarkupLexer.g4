@@ -32,15 +32,20 @@ lexer grammar ZMarkupLexer;
 COMMENT : '/*' .*? '*/' -> channel(HIDDEN);
 LINE_COMMENT : '//' ~[\r\n]* -> channel(HIDDEN);
 
-ZED : 'zed' ;
+ZED : 'zed' -> mode(Z);
+SECTION : 'section'  -> mode(Z);
+AXIOM : 'axiom' -> mode(Z) ;
+SCHEMA : 'schema' -> mode(Z) ;
+DEFINE : 'define' -> mode(Z) ;
+TAG : 'tag' -> mode(Z) ;
+
+IGNORE : .+?;
+
+mode Z;
+END : 'end' -> mode(DEFAULT_MODE);
+
 WHERE : 'where';
-SECTION : 'section' ;
 PARENTS : 'parent' 's'? ;
-AXIOM : 'axiom' ;
-SCHEMA : 'schema' ;
-DEFINE : 'define' ;
-END : 'end' ;
-TAG : 'tag' ;
 COMMA : ',';
 LBRACKET : '[';
 RBRACKET : ']';

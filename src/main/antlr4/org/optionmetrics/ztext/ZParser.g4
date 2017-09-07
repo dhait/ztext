@@ -35,7 +35,11 @@ specification
 	;
 
 attribute
-    :  ATTR 'Tag' '(' ADIGIT ')' END_OF_ATTR;
+    :  ATTR attType '(' ADIGIT ')' END_OF_ATTR;
+
+attType
+    : 'Tag'
+    ;
 
 section
 	: ZED SECTION NAME PARENTS formals? END paragraph* #InheritingSection
