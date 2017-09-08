@@ -51,7 +51,7 @@ class MyApp {
     public static void main() {
     
         TextParser parser = new TextParser();
-        parser.getSearchPath().addItem(SearchPath.SourceType.DIRECTORY, MyResources");
+        parser.getSearchPath().addItem(SearchPath.SourceType.DIRECTORY, "/path/to/my/ztx_files");
 ``` 
 
 Once the search path has been set up, we can parse the Ztext file.  The "*.zxt*" suffix is omitted when specifying the file:
