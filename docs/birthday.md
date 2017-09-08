@@ -19,7 +19,9 @@ where
     name? \notin known
     birthday′ = birthday \cup { name? \mapsto date? }
 end
-
+  
+Now we can put some informal text in the middle.
+  
 schema FindBirthday
     \Xi BirthdayBook
     name? : NAME
