@@ -126,14 +126,14 @@ public class ZRendererListenerImpl extends ZParserBaseListener {
         StringBuilder builder = getBuilder();
         builder.append("<div class=\"z-axiom\">\n");
         if (ctx.schemaText().declPart() != null) {
-            builder.append("<div class=\"z-axiom-decl\">\n");
+            builder.append("<div class=\"z-decl\">\n");
             int start = ctx.schemaText().declPart().start.getTokenIndex();
             int stop = ctx.schemaText().declPart().stop.getTokenIndex();
             appendTokens(start, stop);
             builder.append("</div>\n");
         }
         if (ctx.schemaText().predicate() != null) {
-            builder.append("<div class=\"z-axiom-pred\">\n");
+            builder.append("<div class=\"z-pred\">\n");
             int start = ctx.schemaText().predicate().start.getTokenIndex();
             int stop = ctx.schemaText().predicate().stop.getTokenIndex();
             appendTokens(start, stop);
@@ -194,14 +194,14 @@ public class ZRendererListenerImpl extends ZParserBaseListener {
         builder.append("\t").append(ctx.NAME().getText()).append("\n");
         builder.append("\t</div>\n");
         if (ctx.schemaText().declPart() != null) {
-            builder.append("<div class=\"z-schema-decl\">\n");
+            builder.append("<div class=\"z-decl\">\n");
             int start = ctx.schemaText().declPart().start.getTokenIndex();
             int stop = ctx.schemaText().declPart().stop.getTokenIndex();
             appendTokens(start, stop);
             builder.append("</div>\n");
         }
         if (ctx.schemaText().predicate() != null) {
-            builder.append("<div class=\"z-schema-pred\">\n");
+            builder.append("<div class=\"z-pred\">\n");
             int start = ctx.schemaText().predicate().start.getTokenIndex();
             int stop = ctx.schemaText().predicate().stop.getTokenIndex();
             appendTokens(start, stop);

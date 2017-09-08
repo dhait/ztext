@@ -33,6 +33,8 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.junit.Test;
+import org.optionmetrics.ztext.antlr4.ZMarkupLexer;
+import org.optionmetrics.ztext.antlr4.ZMarkupParser;
 
 import java.io.IOException;
 
