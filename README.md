@@ -81,7 +81,7 @@ The AST contained in the `Node` object is rendered to HTML using the `HTMLRender
 
 #### API documentation
 
-Javadocs are available online [here](docs/apidocs/index.html).
+Javadocs are available online [here](https://cdn.rawgit.com/dhait/ztext/master/docs/apidocs/index.html).
 
 ## HTML Styles
 
