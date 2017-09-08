@@ -32,6 +32,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.function.BiConsumer;
 
 public class TextParserTest {
 
@@ -47,8 +48,6 @@ public class TextParserTest {
         HtmlRenderer renderer = new HtmlRenderer();
         Map<Integer, String> html = renderer.render(specification);
 
-        for (int i: html.keySet()) {
-            System.out.println(html.get(i));
-        }
+        html.forEach((k,v)->System.out.println(v));
     }
 }
