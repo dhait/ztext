@@ -166,7 +166,7 @@ The defined value must begin with a backslash (\\) character.  The value to whic
 A tag statement is used to tag a specific paragraph, so that it can be assigned a reference (for inclusion in an external markdown file, for example). A tag is specified as follows:
 
 ```Z
-tag 3
+tag 3 end
 ```
 
 The tag must be an integer greater than or equal to zero.  A tag has no effect on the Z specification in which it is included, and is not interpreted.
