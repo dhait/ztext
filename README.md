@@ -79,6 +79,10 @@ The AST contained in the `Node` object is rendered to HTML using the `HTMLRender
     }
 ```
 
+#### API documentation
+
+Javadocs are available online [here](docs/apidocs/index.html).
+
 ## HTML Styles
 
 The following CSS classes are used in the rendering of the HTML for the Z specifications:
