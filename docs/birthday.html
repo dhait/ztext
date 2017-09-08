@@ -36,7 +36,40 @@
 </head>
 <body>
 
-  <div class="z-text">
+<div class="z-text">
+    section prelude </div>
+<p>
+</p>
+<div class="z-text">
+    section number_toolkit </div>
+<p>
+</p>
+<div class="z-text">
+    section set_toolkit </div>
+<p>
+</p>
+<div class="z-text">
+    section relation_toolkit parents set_toolkit </div>
+<p>
+</p>
+<div class="z-text">
+    section function_toolkit parents relation_toolkit </div>
+<p>
+</p>
+<div class="z-text">
+    section sequence_toolkit parents function_toolkit , number_toolkit </div>
+<p>
+</p>
+<div class="z-text">
+    section standard_toolkit parents sequence_toolkit </div>
+<p>
+</p>
+<div class="z-text">
+    section birthday parents standard_toolkit </div>
+<p>
+</p>
+
+<div class="z-text">
     [ NAME , DATE ] </div>
 <p>
 </p>
@@ -44,10 +77,10 @@
     <div class="z-name" >
         BirthdayBook
     </div>
-    <div class="z-schema-decl">
+    <div class="z-decl">
         known : ℙ NAME <br/>
         birthday : NAME ⇸ DATE </div>
-    <div class="z-schema-pred">
+    <div class="z-pred">
         known = dom birthday </div>
 </div>
 <p>
@@ -56,11 +89,11 @@
     <div class="z-name" >
         AddBirthday
     </div>
-    <div class="z-schema-decl">
+    <div class="z-decl">
         Δ BirthdayBook <br/>
         name? : NAME <br/>
         date? : DATE </div>
-    <div class="z-schema-pred">
+    <div class="z-pred">
         name? ∉ known <br/>
         birthday′ = birthday ∪ { name? ↦ date? } </div>
 </div>
@@ -71,11 +104,11 @@
     <div class="z-name" >
         FindBirthday
     </div>
-    <div class="z-schema-decl">
+    <div class="z-decl">
         Ξ BirthdayBook <br/>
         name? : NAME <br/>
         date! : DATE </div>
-    <div class="z-schema-pred">
+    <div class="z-pred">
         name? ∈ known <br/>
         date! = birthday ( name? ) </div>
 </div>
@@ -85,11 +118,11 @@
     <div class="z-name" >
         Remind
     </div>
-    <div class="z-schema-decl">
+    <div class="z-decl">
         Ξ BirthdayBook <br/>
         today? : DATE <br/>
         cards! : ℙ NAME </div>
-    <div class="z-schema-pred">
+    <div class="z-pred">
         cards! = { n : known | birthday ( n ) = today? } </div>
 </div>
 <p>
@@ -98,9 +131,9 @@
     <div class="z-name" >
         InitBirthdayBook
     </div>
-    <div class="z-schema-decl">
+    <div class="z-decl">
         BirthdayBook′ </div>
-    <div class="z-schema-pred">
+    <div class="z-pred">
         known′ = { } </div>
 </div>
 <p>
@@ -114,9 +147,9 @@
     <div class="z-name" >
         Success
     </div>
-    <div class="z-schema-decl">
+    <div class="z-decl">
         result! : REPORT </div>
-    <div class="z-schema-pred">
+    <div class="z-pred">
         result! = ok </div>
 </div>
 <p>
@@ -125,11 +158,11 @@
     <div class="z-name" >
         AlreadyKnown
     </div>
-    <div class="z-schema-decl">
+    <div class="z-decl">
         Ξ BirthdayBook <br/>
         name? : NAME <br/>
         result! : REPORT </div>
-    <div class="z-schema-pred">
+    <div class="z-pred">
         name? ∈ known <br/>
         result! = already_known </div>
 </div>
@@ -144,11 +177,11 @@
     <div class="z-name" >
         NotKnown
     </div>
-    <div class="z-schema-decl">
+    <div class="z-decl">
         Ξ BirthdayBook <br/>
         name? : NAME <br/>
         result! : REPORT </div>
-    <div class="z-schema-pred">
+    <div class="z-pred">
         name? ∉ known <br/>
         result! = not_known </div>
 </div>
@@ -164,5 +197,7 @@
 </div>
 <p>
 </p>
+
+
 </body>
 </html>

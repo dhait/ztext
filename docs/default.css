@@ -113,12 +113,12 @@ div.z-axiom {
     color: purple;
 }
 
-div.z-axiom .z-axiom-decl {
+div.z-axiom .z-decl {
     padding-left: 1em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
-div.z-axiom .z-axiom-pred {
+div.z-axiom .z-pred {
     border-top: solid black 1px;
     padding-left: 1em;
     padding-top: 0.5em;
@@ -139,12 +139,12 @@ div.z-schema {
     white-space: nowrap;
     color: purple;
 }
-div.z-schema .z-schema-decl {
+div.z-schema .z-decl {
     padding-left: 1em;
     padding-top: 0.0em;
     padding-bottom: 0.5em;
 }
-div.z-schema .z-schema-pred {
+div.z-schema .z-pred {
     border-top: solid black 1px;
     padding-left: 1em;
     padding-top: 0.5em;
