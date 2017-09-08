@@ -128,11 +128,17 @@ For a description of the Ztext markup language, please see the [Ztext](docs/inde
 
 Pull requests are welcome. Please add tests and document clearly.  Opening an issue describing the problem or feature addressed by the request would be appreciated.
 
+## Acknowledgements
+
+The Ztext library uses Antlr4 (www.antlr4.org) for Z language parsing.
+
+A special thank you to Adam Taylor for the Antlr4 Z Language Lexer and Parser (https://github.com/antlr/grammars-v4/tree/master/z).
+
 ## License
 
 Copyright (C) 2017 by David J Hait.
-Portions copyrighted by their contributors.
+Portions copyrighted by their contributors and governed by their respective licenses.
 
-Licensed under the 3-Clause BSD license.  Plese see [LICENSE](LICENSE) file.
+Licensed under the 3-Clause BSD license.  Please see [LICENSE](LICENSE) file.
 
 
