@@ -34,6 +34,9 @@ import org.antlr.v4.runtime.CommonToken;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
+/**
+ *  This class prints sytax errors during the parsing of the Ztext markup file
+ */
 public class ZMarkupErrorListener extends BaseErrorListener {
 
     private final String fileName;

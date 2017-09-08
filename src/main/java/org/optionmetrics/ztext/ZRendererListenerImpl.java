@@ -33,12 +33,14 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.omg.IOP.TAG_CODE_SETS;
+import org.optionmetrics.ztext.antlr4.ZParser;
+import org.optionmetrics.ztext.antlr4.ZParserBaseListener;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/* This class walks the Z code markup AST, and creates HTML code for each paragraph.
+ */
 public class ZRendererListenerImpl extends ZParserBaseListener {
 
     private final CommonTokenStream tokens;
@@ -48,11 +50,11 @@ public class ZRendererListenerImpl extends ZParserBaseListener {
     public ZRendererListenerImpl(CommonTokenStream tokens) {
         this.tokens = tokens;
     }
-    @Override
-    public String toString() {
+    //@Override
+    //public String toString() {
         //return builder.toString();
-        return "";
-    }
+    //    return "";
+    //}
 
     public Map<Integer, StringBuilder> getBlockMap() {
         return blockMap;

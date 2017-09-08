@@ -1,6 +1,6 @@
 /*
  * [The "BSD licence"]
- * Copyright (c) 2017 David J Hait
+ * Copyright (c) 2017 Adam Taylor
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -27,7 +27,7 @@
  *
  */
 
-package org.optionmetrics.ztext;
+package org.optionmetrics.ztext.antlr4;
 
 import org.antlr.v4.runtime.TokenStream;
 

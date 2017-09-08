@@ -35,8 +35,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * The class which converts the parsed Z notation code into tagged blocks of HTML.
+*/
 public class HtmlRenderer {
 
+    /**
+     * Translate the Z code to HTML, block by block, and return a map
+     * containing the HTML code, indexed by tag.
+     * @param specification - The Node containing the parsed Z code.
+     * @return The rendered HTML code map.
+     */
     public Map<Integer, String> render(Node specification) {
         Map<Integer, String> htmlMap = new TreeMap<>();
 

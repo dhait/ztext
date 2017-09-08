@@ -36,13 +36,22 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A set of paths (directories or resource paths) in which to search for Ztext files.
+ */
 public class SearchPath {
 
+    /**
+     * The type of the path
+     */
     public enum SourceType {
         RESOURCE_PATH,
         DIRECTORY
     }
 
+    /**
+     * A single entry in the search path list
+     */
     class Source {
         SourceType type;
         String path;

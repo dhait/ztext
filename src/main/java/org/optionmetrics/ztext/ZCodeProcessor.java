@@ -33,11 +33,17 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.optionmetrics.ztext.antlr4.ZLexer;
+import org.optionmetrics.ztext.antlr4.ZParser;
 
 
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * This class is responsible for parsing the Standard Z code file (generated from the Ztext markup)
+ * and converting it to an AST.
+ */
 public class ZCodeProcessor {
 
     private CommonTokenStream tokens;
@@ -52,6 +58,11 @@ public class ZCodeProcessor {
         return process(stream);
     }
 
+    /**
+     * Parses a stream of characterss from a Standard Z file.
+     * @param stream The stream to be parsed
+     * @return a Node class referencing the AST
+     */
     private Node process(CharStream stream) {
         Node node = null;
         ZLexer lexer = new ZLexer(stream);

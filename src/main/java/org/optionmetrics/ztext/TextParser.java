@@ -31,6 +31,11 @@ package org.optionmetrics.ztext;
 
 import java.io.IOException;
 
+/**
+ * The top-level parsing class in the Ztext library.  It first parses the ztext and
+ * translates into a temporary Standard Z file.  It then parses this file
+ * to return a Node object containing the corresponding AST.
+ */
 public class TextParser {
 
     private ZMarkupProcessor zMarkupProcessor = new ZMarkupProcessor();

@@ -33,6 +33,8 @@ import org.antlr.v4.runtime.BufferedTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.TokenStreamRewriter;
 import org.antlr.v4.runtime.misc.Interval;
+import org.optionmetrics.ztext.antlr4.ZMarkupParser;
+import org.optionmetrics.ztext.antlr4.ZMarkupParserBaseListener;
 import org.optionmetrics.ztext.impl.Definition;
 import org.optionmetrics.ztext.impl.Formal;
 import org.optionmetrics.ztext.impl.Informal;
@@ -41,6 +43,9 @@ import org.optionmetrics.ztext.impl.SectionHeader;
 import java.util.ArrayList;
 import java.util.List;
 
+/* This class walks the Ztext markup AST, and creates {@link org.optionmetrics.ztext.Paragraph Paragraph}
+ objects from the text associated with each Z notation paragraph.
+ */
 public class ZMarkupTranslator extends ZMarkupParserBaseListener {
 
     private final String fileName;

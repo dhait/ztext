@@ -29,6 +29,9 @@
 
 package org.optionmetrics.ztext;
 
+/**
+ * A Z notation paragraph.
+ */
 public abstract class Paragraph {
 
     private int tagId;

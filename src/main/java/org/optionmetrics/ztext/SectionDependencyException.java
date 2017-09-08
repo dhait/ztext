@@ -29,6 +29,9 @@
 
 package org.optionmetrics.ztext;
 
+/**
+ * This exception is thrown when a circular dependency exists in the section / parent dependencies.
+ */
 public class SectionDependencyException extends Exception {
     public SectionDependencyException(String dependency_cycle_present) {
         super(dependency_cycle_present);

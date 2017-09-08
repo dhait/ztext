@@ -34,6 +34,8 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.optionmetrics.ztext.antlr4.ZMarkupLexer;
+import org.optionmetrics.ztext.antlr4.ZMarkupParser;
 import org.optionmetrics.ztext.impl.Formal;
 import org.optionmetrics.ztext.impl.Informal;
 import org.optionmetrics.ztext.impl.SectionHeader;

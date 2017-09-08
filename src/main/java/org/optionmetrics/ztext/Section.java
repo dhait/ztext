@@ -35,7 +35,9 @@ import org.optionmetrics.ztext.impl.SectionHeader;
 
 import java.util.*;
 
-
+/**
+ * This class represents a section of Z code.
+ */
 public class Section {
 
     private List<Paragraph> paragraphs = new ArrayList<>();

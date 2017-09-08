@@ -32,6 +32,10 @@ package org.optionmetrics.ztext;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 
+
+/**
+ * This class is a facade over the ANTLR4 AST and its associated tokens.
+ */
 public class Node {
 
     private final ParserRuleContext context;
