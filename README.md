@@ -3,6 +3,8 @@ Java library for parsing and rendering [Ztext](docs/index.md), a LaTeX-free mark
 
 It provides classes for parsing Ztext to an [Antlr](http://www.antlr.org) (4.7) abstract syntax tree (AST), and rendering to HTML.
 
+[![Build Status](https://travis-ci.org/dhait/ztext.svg?branch=master)](https://travis-ci.org/dhait/ztext)
+
 ## Example
 An example of the output of the Ztext library, based on Spivey's "Birthday Book", can be found here: [BirthdayBook](https://cdn.rawgit.com/dhait/ztext/master/docs/birthday.html).
 
